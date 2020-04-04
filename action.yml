@@ -1,6 +1,9 @@
 ---
 name: "Sceptre GitHub Action"
 description: "Runs sceptre commands via GitHub Actions"
+branding:
+  icon: 'activity'
+  color: 'blue'
 inputs:
   sceptre_subcommand:
     description: "Sceptre subcommand to execute"
