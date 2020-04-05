@@ -9,6 +9,10 @@ inputs:
     description: "Version of Sceptre to install"
     required: false
     default: "2.3.0"
+  sceptre_directory:
+    description: "Directory to execute Sceptre commands from"
+    required: false
+    default: ""
   sceptre_troposphere:
     description: "Specify if troposphere templates are used - 'true' or 'false'"
     required: false
