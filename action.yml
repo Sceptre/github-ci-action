@@ -23,7 +23,7 @@ inputs:
   sceptre_troposphere_version:
     description: "Version of troposphere to install"
     required: false
-    default: "false"
+    default: "2.6.0"
 runs:
     using: "docker"
     image: "./Dockerfile"
