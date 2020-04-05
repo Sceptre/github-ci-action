@@ -65,7 +65,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: 'Sceptre Validate'
-        uses: rurquhart/sceptre-action@master
+        uses: Rurquhart/sceptre-action@master
         with:
           sceptre_version: '2.3.0'
           sceptre_subcommand: 'validate dev'
@@ -91,13 +91,13 @@ jobs:
         uses: actions/checkout@master
 
       - name: 'Sceptre Validate'
-        uses: rurquhart/sceptre-action@master
+        uses: Rurquhart/sceptre-action@master
         with:
           sceptre_version: '2.3.0'
           sceptre_subcommand: 'validate dev'
 
       - name: 'Sceptre launch'
-        uses: rurquhart/sceptre-action@master
+        uses: Rurquhart/sceptre-action@master
         with:
           sceptre_version: '2.3.0'
           sceptre_subcommand: 'launch -y dev'
