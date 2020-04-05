@@ -43,10 +43,10 @@ function parseInputs {
       exit 1
   fi
 
-  sceptreTropospherVer='2.6.0'
+  sceptreTroposphereVer='2.6.0'
   if [[ "${INPUT_SCEPTRE_TROPOSPHERE_VERSION}" != "" ]]; then
     if [[ "${INPUT_SCEPTRE_TROPOSPHERE_VERSION}" =~ ^2[.][0-9][.][0-9]$ ]]; then
-      sceptreTropospherVer=${INPUT_SCEPTRE_TROPOSPHERE_VERSION}
+      sceptreTroposphereVer=${INPUT_SCEPTRE_TROPOSPHERE_VERSION}
     else
       echo "Unsupported troposphere version, must be >2.0.0"
       exit 1
@@ -61,7 +61,7 @@ function parseInputs {
 function installDeps {
   if [[ "${sceptreTroposphere}" == 1 ]]; then
     echo "Installing Troposphere"
-    pip install --no-input troposphere==$sceptreTropospherVer
+    pip install --no-input troposphere==$sceptreTroposphereVer
   fi
   echo "Installing Sceptre"
   pip install --no-input sceptre==$sceptreVer
