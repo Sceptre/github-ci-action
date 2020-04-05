@@ -24,7 +24,7 @@ function parseInputs {
   fi
 
   sceptreDir=''
-  if [ "${INPUT_SCEPTRE_DIRECTORY}" != ""]; then
+  if [ "${INPUT_SCEPTRE_DIRECTORY}" != "" ]; then
     sceptreDir=${INPUT_SCEPTRE_DIRECTORY}
   else
     sceptreDir=""
