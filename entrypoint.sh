@@ -23,6 +23,13 @@ function parseInputs {
     exit 1
   fi
 
+  sceptreDir=''
+  if [ "${INPUT_SCEPTRE_DIRECTORY}" != ""]; then
+    sceptreDir=${INPUT_SCEPTRE_DIRECTORY}
+  else
+    sceptreDir=""
+  fi
+
   sceptreTroposphere=0
   if [ "${INPUT_SCEPTRE_TROPOSPHERE}" != "" ]; then
     if [ "${INPUT_SCEPTRE_TROPOSPHERE}" == "false" ]; then
@@ -66,6 +73,10 @@ function installDeps {
 function main {
   parseInputs
   installDeps
+
+  if [ ${sceptreDir} != "" ]; then
+    cd sceptreDir
+  fi
 
   sceptre $sceptreSubcommand
 }

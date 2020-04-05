@@ -100,12 +100,12 @@ jobs:
         uses: rurquhart/sceptre-action@master
         with:
           sceptre_version: '2.3.0'
-          sceptre_subcommand: 'launch dev'
+          sceptre_subcommand: 'launch -y dev'
 ```
 
 ## Further examples
 
-For further examples and to see this action used, please look at [this repo](<https://github.com/Rurquhart/sceptre-action-examples>)
+For further examples and to see this action used, please look at [this repo](<https://github.com/Rurquhart/sceptre-action-examples>).
 
 ## References
 
