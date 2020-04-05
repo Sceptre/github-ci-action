@@ -49,6 +49,7 @@ function parseInputs {
       sceptreTroposphereVer=${INPUT_SCEPTRE_TROPOSPHERE_VERSION}
     else
       echo "Unsupported troposphere version, must be >2.0.0"
+      echo "Version entered: ${INPUT_SCEPTRE_TROPOSPHERE_VERSION}"
       exit 1
     fi
   else
