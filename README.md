@@ -1,10 +1,14 @@
 # Sceptre Github CI Action
 
-This GitHub action allows you to simply executre Sceptre commands within Github actions, without needing to handle any installation of pip modules.
+This GitHub action allows you to simply executre Sceptre commands within Github
+actions, without needing to handle any installation of pip modules.
 
 The action supports all commands and template types, including Troposphere.
 
-It is possible to use this action on a self-hosted runner, provided the runner has docker installed. See the [GitHub action Docs](<https://help.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners#requirements-for-self-hosted-runner-machines>) for more info.
+It is possible to use this action on a self-hosted runner, provided the runner
+has docker installed. See the
+[GitHub action Docs](<https://help.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners#requirements-for-self-hosted-runner-machines>)
+for more info.
 
 ## Compatibility
 
@@ -15,26 +19,30 @@ Requires:
 
 ## Environment Variables
 
-To use this action you must specify the following environment variables for the runner used to execute the action:
+To use this action you must specify the following environment variables for
+the runner used to execute the action:
 
 ```none
 AWS_ACCESS_KEY_ID
 # Specifies an AWS access key associated with an IAM user or role.
 
 AWS_SECRET_ACCESS_KEY
-# Specifies the secret key associated with the access key. This is essentially the "password" for the access key.
+# Specifies the secret key associated with the access key. This is essentially
+the "password" for the access key.
 ```
 
 Optionally, you can provide these environment variables:
 
 ```none
 AWS_DEFAULT_REGION
-# Specifies the AWS Region to send the request to. Only required if you haven't specified this in your stack config files.
+# Specifies the AWS Region to send the request to. Only required if you haven't
+specified this in your stack config files.
 ```
 
 ## Usage
 
-Here are two quick examples for some common workflows. Both workflows assume a Sceptre structure like so:
+Here are two quick examples for some common workflows. Both workflows assume a
+Sceptre structure like so:
 ```none
 .
 ├── config
@@ -103,9 +111,15 @@ jobs:
           sceptre_subcommand: 'launch -y dev'
 ```
 
+## Acknowledgments
+
+This is a fork of the [Sceptre Github Action](https://github.com/Rurquhart/sceptre-action)
+developed by [Robbie Urquhart](https://github.com/Rurquhart)
+
 ## Further examples
 
-For further examples and to see this action used, please look at [this repo](<https://github.com/Rurquhart/sceptre-action-examples>).
+For further examples and to see this action used, please look at
+[this repo](<https://github.com/Rurquhart/sceptre-action-examples>).
 
 ## References
 
