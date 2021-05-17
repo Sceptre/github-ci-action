@@ -2,8 +2,8 @@
 name: "Sceptre Github CI Action"
 description: "Run Sceptre with a GitHub Action"
 branding:
-  icon: 'activity'
-  color: 'blue'
+  icon: 'upload-cloud'
+  color: 'gray-dark'
 inputs:
   sceptre_subcommand:
     description: "Sceptre subcommand to execute"
