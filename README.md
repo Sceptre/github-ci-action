@@ -1,4 +1,4 @@
-# Sceptre GitHub Action
+# Sceptre Github CI Action
 
 This GitHub action allows you to simply executre Sceptre commands within Github actions, without needing to handle any installation of pip modules.
 

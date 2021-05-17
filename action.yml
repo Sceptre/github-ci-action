@@ -1,6 +1,6 @@
 ---
-name: "Sceptre GitHub Action"
-description: "Runs sceptre commands via GitHub Actions"
+name: "Sceptre Github CI Action"
+description: "Run Sceptre with a GitHub Action"
 branding:
   icon: 'activity'
   color: 'blue'
