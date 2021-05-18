@@ -58,7 +58,7 @@ Sceptre structure like so:
 ```yaml
 # Function: Validate stacks against the 'dev' environment
 # Trigger: Pull Request created
-name: 'Sceptre GitHub Actions'
+name: 'Sceptre Github CI Action'
 on:
   - pull_request
 env:
@@ -73,16 +73,16 @@ jobs:
         uses: actions/checkout@master
 
       - name: 'Sceptre Validate'
-        uses: Rurquhart/sceptre-action@master
+        uses: Sceptre/github-action@master
         with:
-          sceptre_version: '2.3.0'
+          sceptre_version: '2.5.0'
           sceptre_subcommand: 'validate dev'
 ```
 
 ```yaml
 # Function: Validate stacks, then launch all stacks in the 'dev' environment
 # Trigger: Push/Merge to 'develop' branch
-name: 'Sceptre GitHub Actions'
+name: 'Sceptre Github CI Action'
 on:
   push:
     branches:
@@ -99,15 +99,15 @@ jobs:
         uses: actions/checkout@master
 
       - name: 'Sceptre Validate'
-        uses: Rurquhart/sceptre-action@master
+        uses: Sceptre/github-action@master
         with:
-          sceptre_version: '2.3.0'
+          sceptre_version: '2.5.0'
           sceptre_subcommand: 'validate dev'
 
       - name: 'Sceptre launch'
-        uses: Rurquhart/sceptre-action@master
+        uses: Sceptre/github-action@master
         with:
-          sceptre_version: '2.3.0'
+          sceptre_version: '2.5.0'
           sceptre_subcommand: 'launch -y dev'
 ```
 
@@ -116,12 +116,7 @@ jobs:
 This is a fork of the [Sceptre Github Action](https://github.com/Rurquhart/sceptre-action)
 developed by [Robbie Urquhart](https://github.com/Rurquhart)
 
-## Further examples
-
-For further examples and to see this action used, please look at
-[this repo](<https://github.com/Rurquhart/sceptre-action-examples>).
-
 ## References
 
-- [Sceptre Documentation](<https://sceptre.cloudreach.com/2.3.0/>)
+- [Sceptre Documentation](<https://sceptre.cloudreach.com/2.5.0/>)
 - [GitHub Actions Documentation](<https://help.github.com/en/actions>)
