@@ -73,7 +73,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: 'Sceptre Validate'
-        uses: Sceptre/github-action@master
+        uses: Sceptre/github-ci-action@master
         with:
           sceptre_version: '2.5.0'
           sceptre_subcommand: 'validate dev'
@@ -99,13 +99,13 @@ jobs:
         uses: actions/checkout@master
 
       - name: 'Sceptre Validate'
-        uses: Sceptre/github-action@master
+        uses: Sceptre/github-ci-action@master
         with:
           sceptre_version: '2.5.0'
           sceptre_subcommand: 'validate dev'
 
       - name: 'Sceptre launch'
-        uses: Sceptre/github-action@master
+        uses: Sceptre/github-ci-action@master
         with:
           sceptre_version: '2.5.0'
           sceptre_subcommand: 'launch -y dev'
