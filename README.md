@@ -82,6 +82,7 @@ jobs:
 ```yaml
 # Function: Validate stacks, then launch all stacks in the 'dev' environment
 # Trigger: Push/Merge to 'develop' branch
+# Plugins: sceptre-ssm-resolver from PyPI and sceptre-cmd-resolver from GitHub
 name: 'Sceptre Github CI Action'
 on:
   push:
@@ -108,6 +109,9 @@ jobs:
         uses: Sceptre/github-ci-action@master
         with:
           sceptre_version: '2.5.0'
+          sceptre_plugins: >-
+            sceptre-ssm-resolver==1.1.4
+            git+https://github.com/lukeplausin/sceptre-resolver-cmd.git@master
           sceptre_subcommand: 'launch -y dev'
 ```
 
