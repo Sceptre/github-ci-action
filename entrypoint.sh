@@ -66,6 +66,10 @@ function installDeps {
   fi
   echo "Installing Sceptre"
   pip install --no-input sceptre==$sceptreVer
+  if [[ "${INPUT_SCEPTRE_PLUGINS}" != "" ]]; then
+    echo "Installing Sceptre plugins"
+    pip install --no-input ${INPUT_SCEPTRE_PLUGINS}
+  fi
 }
 
 
