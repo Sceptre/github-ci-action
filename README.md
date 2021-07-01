@@ -111,7 +111,7 @@ jobs:
           sceptre_version: '2.5.0'
           sceptre_plugins: >-
             sceptre-ssm-resolver==1.1.4
-            git+https://github.com/lukeplausin/sceptre-resolver-cmd.git@master
+            git+https://github.com/Sceptre/sceptre-resolver-cmd.git@master
           sceptre_subcommand: 'launch -y dev'
 ```
 
