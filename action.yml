@@ -24,6 +24,10 @@ inputs:
     description: "Version of troposphere to install"
     required: false
     default: "2.7.1"
+  sceptre_plugins:
+    description: "List of packages (and optionally, versions) to be passed to 'pip install'"
+    required: false
+    default: ""
 runs:
     using: "docker"
     image: "./Dockerfile"
