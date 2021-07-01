@@ -64,12 +64,21 @@ function installDeps {
     echo "Installing Troposphere"
     pip install --no-input troposphere==$sceptreTroposphereVer
   fi
-  echo "Installing Sceptre"
-  pip install --no-input sceptre==$sceptreVer
   if [[ "${INPUT_SCEPTRE_PLUGINS}" != "" ]]; then
     echo "Installing Sceptre plugins"
     pip install --no-input ${INPUT_SCEPTRE_PLUGINS}
   fi
+  if [[ "${INPUT_SCEPTRE_REQUIREMENTS}" != "" ]]; then
+    echo "Installing Python requirements"
+    pip install --no-input --requirement ${GITHUB_WORKSPACE}/${INPUT_SCEPTRE_REQUIREMENTS}
+  fi
+  if [[ "${INPUT_SCEPTRE_PIPFILE}" != "" ]]; then
+    echo "Installing Python Pipfile"
+    pip install pipenv
+    (cd $(dirname ${GITHUB_WORKSPACE}/${INPUT_SCEPTRE_PIPFILE}) && pipenv install)
+  fi
+  echo "Installing Sceptre"
+  pip install --no-input sceptre==$sceptreVer
 }
 
 

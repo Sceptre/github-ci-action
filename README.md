@@ -115,6 +115,45 @@ jobs:
           sceptre_subcommand: 'launch -y dev'
 ```
 
+```yaml
+# Function: Run pre-commit checks and deploy 'dev' stack group if checks pass
+# Trigger: Push/Merge to all branches, but deployment reserved to 'main' branch
+# Plugins: Install from a Pipfile using Pipenv (or requirements.txt using pip)
+name: 'Sceptre Github CI Action'
+on: push
+jobs:
+  pre-commit:
+    name: 'Run pre-commit hooks against all files'
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: pre-commit/action@v2.0.2
+  sceptre-deploy:
+    name: 'Deploy CloudFormation templates using sceptre'
+    runs-on: 'ubuntu-latest'
+    needs: 'pre-commit'
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: 'Checkout repository'
+        uses: actions/checkout@v2
+      - name: 'Assume AWS role'
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: 'us-east-1'
+          role-to-assume: 'arn:aws:iam::0123456789:role/ci-service-role'
+          role-duration-seconds: 1200
+      - name: 'Sceptre launch'
+        uses: Sceptre/github-ci-action@master
+        with:
+          sceptre_version: '2.5.0'
+          sceptre_pipfile: './Pipfile'
+          # sceptre_requirements: './requirements.txt'
+          sceptre_subcommand: 'launch --yes dev'
+```
+
 ## Acknowledgments
 
 This is a fork of the [Sceptre Github Action](https://github.com/Rurquhart/sceptre-action)

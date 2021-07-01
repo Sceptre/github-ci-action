@@ -28,6 +28,14 @@ inputs:
     description: "List of packages (and optionally, versions) to be passed to 'pip install'"
     required: false
     default: ""
+  sceptre_requirements:
+    description: "File path to a Pip requirements file (relative to repository root)"
+    required: false
+    default: ""
+  sceptre_pipfile:
+    description: "File path to a Pipenv Pipfile (relative to repository root)"
+    required: false
+    default: ""
 runs:
     using: "docker"
     image: "./Dockerfile"
