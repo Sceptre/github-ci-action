@@ -11,7 +11,7 @@ inputs:
   sceptre_version:
     description: "Version of Sceptre to install"
     required: false
-    default: "2.5.0"
+    default: ""
   sceptre_directory:
     description: "Directory to execute Sceptre commands from"
     required: false
