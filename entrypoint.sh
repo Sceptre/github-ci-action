@@ -22,8 +22,8 @@ function parseInputs {
       echo "ERROR: Input sceptre_version cannot be empty!"
       exit 1
     else
-      echo "WARNING: Sceptre version not specified, so it's assumed that it"
-      echo "-------  is specified in the Pipfile or requirements file."
+      echo "WARNING: Sceptre version not specified, so the assumumption is that the"
+      echo "         version is specified in the Pipfile or requirements file."
     fi
   fi
 
@@ -67,25 +67,25 @@ function parseInputs {
           || "${INPUT_SCEPTRE_TROPOSPHERE_VERSION}" != "" \
           || "${INPUT_SCEPTRE_VERSION}" != "" ]]; then
     echo "WARNING: Detected Pipfile and at least one other method for specifying"
-    echo "-------  dependencies/versions. Only the Pipfile will be installed."
-    echo "-------  Consider only specifying the dependencies/versions in the Pipfile."
+    echo "         dependencies/versions. Only the Pipfile will be installed."
+    echo "         Consider only specifying the dependencies/versions in the Pipfile."
   fi
 
   if [[ "${INPUT_SCEPTRE_PIPFILE}" != "" || "${INPUT_SCEPTRE_REQUIREMENTS}" != "" ]]; then
 
     if [[ "${INPUT_SCEPTRE_PLUGINS}" != "" ]]; then
         echo "WARNING: Detected Pipfile and/or requirements file and Sceptre plugins."
-        echo "-------  Consider only specifying the Sceptre plugins in either file."
+        echo "         Consider only specifying the Sceptre plugins in either file."
     fi
 
     if [[ "${INPUT_SCEPTRE_TROPOSPHERE_VERSION}" != "" ]]; then
       echo "WARNING: Detected Pipfile and/or requirements file and Troposhere version."
-      echo "-------  Consider only specifying the Troposphere version in either file."
+      echo "         Consider only specifying the Troposphere version in either file."
     fi
 
     if [[ "${INPUT_SCEPTRE_VERSION}" != "" ]]; then
       echo "WARNING: Detected Pipfile and/or requirements file and a Sceptre version."
-      echo "-------  Consider only specifying the Sceptre version in the Pipfile."
+      echo "         Consider only specifying the Sceptre version in the Pipfile."
     fi
 
   fi
@@ -139,7 +139,7 @@ function main {
   cd ${GITHUB_WORKSPACE}/${sceptreDir}
 
   $sceptreCommandPrefix $sceptreSubcommand
-  
+
 }
 
 main "${*}"

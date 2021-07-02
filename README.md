@@ -41,7 +41,7 @@ specified this in your stack config files.
 
 ## Usage
 
-Here are two quick examples for some common workflows. Both workflows assume a
+Here are three quick examples for some common workflows. Workflows assume a
 Sceptre structure like so:
 ```none
 .
@@ -118,7 +118,7 @@ jobs:
 ```yaml
 # Function: Run pre-commit checks and deploy 'dev' stack group if checks pass
 # Trigger: Push/Merge to all branches, but deployment reserved to 'main' branch
-# Plugins: Install from a Pipfile using Pipenv (or requirements.txt using pip)
+# Plugins: Install from a Pipfile using the specified version of Pipenv 
 name: 'Sceptre Github CI Action'
 on: push
 jobs:
@@ -150,8 +150,11 @@ jobs:
         with:
           sceptre_version: '2.5.0'
           sceptre_pipfile: './Pipfile'
+          # Omit the Pipenv version to use the latest release
+          sceptre_pipenv_version: '2021.5.29'
+          # Or rely on a requirements file instead of Pipenv/Pipfile
           # sceptre_requirements: './requirements.txt'
-          sceptre_subcommand: 'launch --yes dev'
+          sceptre_subcommand: 'launch -y dev'
 ```
 
 ## Acknowledgments
