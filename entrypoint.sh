@@ -71,10 +71,9 @@ function parseInputs {
           || "${INPUT_SCEPTRE_PLUGINS}" != "" \
           || "${INPUT_SCEPTRE_TROPOSPHERE_VERSION}" != "" \
           || "${INPUT_SCEPTRE_VERSION}" != "" ]]; then
-        echo "WARNING: Detected Pipfile and at least one other method for specifying"
-        echo "-------  dependencies/versions. Only the Pipfile will be installed."
-        echo "-------  Consider only specifying the dependencies/versions in the Pipfile."
-    fi
+    echo "WARNING: Detected Pipfile and at least one other method for specifying"
+    echo "-------  dependencies/versions. Only the Pipfile will be installed."
+    echo "-------  Consider only specifying the dependencies/versions in the Pipfile."
   fi
 
   if [[ "${INPUT_SCEPTRE_PIPFILE}" != "" || "${INPUT_SCEPTRE_REQUIREMENTS}" != "" ]]; then
