@@ -61,11 +61,6 @@ function parseInputs {
     exit 1
   fi
 
-  if [[ "${INPUT_SCEPTRE_REQUIREMENTS}" != "" && "${INPUT_SCEPTRE_PIPFILE}" != "" ]]; then
-    echo "WARNING: Detected Pipfile and requirements file"
-    echo "-------  Consider only specifying Python dependencies in one or the other"
-  fi
-
   if [[ "${INPUT_SCEPTRE_PIPFILE}" != "" ]] \
      && [[   "${INPUT_SCEPTRE_REQUIREMENTS}" != "" \
           || "${INPUT_SCEPTRE_PLUGINS}" != "" \
@@ -107,6 +102,8 @@ function installDeps {
     fi
     echo "Installing Python Pipfile"
     (cd $(dirname ${GITHUB_WORKSPACE}/${INPUT_SCEPTRE_PIPFILE}) && pipenv install)
+    sceptreCommandPrefix="pipenv run $sceptreCommandPrefix"
+    return 0
   fi
 
   if [[ "${INPUT_SCEPTRE_REQUIREMENTS}" != "" ]]; then
@@ -128,20 +125,21 @@ function installDeps {
     echo "Installing Sceptre version $sceptreVer"
     pip install --no-input sceptre==$sceptreVer
   fi
+
 }
 
 
 function main {
+
+  sceptreCommandPrefix="sceptre"
+
   parseInputs
   installDeps
 
   cd ${GITHUB_WORKSPACE}/${sceptreDir}
 
-  if [[ "${INPUT_SCEPTRE_PIPFILE}" != "" ]]; then
-    pipenv run sceptre $sceptreSubcommand
-  else
-    sceptre $sceptreSubcommand
-  fi
+  $sceptreCommandPrefix $sceptreSubcommand
+  
 }
 
 main "${*}"
