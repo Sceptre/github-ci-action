@@ -148,11 +148,11 @@ jobs:
       - name: 'Sceptre launch'
         uses: Sceptre/github-ci-action@master
         with:
-          sceptre_version: '2.5.0'
+          # Store the sceptre version in a Pipfile
           sceptre_pipfile: './Pipfile'
           # Omit the Pipenv version to use the latest release
           sceptre_pipenv_version: '2021.5.29'
-          # Or rely on a requirements file instead of Pipenv/Pipfile
+          # Or rely on a requirements file instead of a Pipfile
           # sceptre_requirements: './requirements.txt'
           sceptre_subcommand: 'launch -y dev'
 ```
