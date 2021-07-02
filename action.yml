@@ -36,6 +36,10 @@ inputs:
     description: "File path to a Pipenv Pipfile (relative to repository root)"
     required: false
     default: ""
+  sceptre_pipenv_version:
+    description: "Version of Pipenv to install"
+    required: false
+    default: ""
 runs:
     using: "docker"
     image: "./Dockerfile"
