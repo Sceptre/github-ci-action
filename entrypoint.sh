@@ -10,9 +10,9 @@ function parseInputs {
   fi
 
   # Optional inputs
-  sceptreVer='2.3.0'
+  sceptreVer='4.0.2'
   if [[ "${INPUT_SCEPTRE_VERSION}" != "" ]]; then
-    if [[ "${INPUT_SCEPTRE_VERSION}" =~ ^2[.][0-9][.][0-9]$ ]]; then
+    if [[ "${INPUT_SCEPTRE_VERSION}" =~ ^[2-4][.][0-9][.][0-9]$ ]]; then
       sceptreVer=${INPUT_SCEPTRE_VERSION}
     else
       echo "Unsupported sceptre version"
