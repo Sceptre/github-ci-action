@@ -12,12 +12,7 @@ function parseInputs {
   # Optional inputs
   sceptreVer='4.0.2'
   if [[ "${INPUT_SCEPTRE_VERSION}" != "" ]]; then
-    if [[ "${INPUT_SCEPTRE_VERSION}" =~ ^[2-4][.][0-9][.][0-9]$ ]]; then
       sceptreVer=${INPUT_SCEPTRE_VERSION}
-    else
-      echo "Unsupported sceptre version"
-      exit 1
-    fi
   else
     echo "Input sceptre_version cannot be empty!"
     exit 1
@@ -45,13 +40,7 @@ function parseInputs {
 
   sceptreTroposphereVer='2.6.0'
   if [[ "${INPUT_SCEPTRE_TROPOSPHERE_VERSION}" != "" ]]; then
-    if [[ "${INPUT_SCEPTRE_TROPOSPHERE_VERSION}" =~ ^2[.][0-9][.][0-9]$ ]]; then
       sceptreTroposphereVer=${INPUT_SCEPTRE_TROPOSPHERE_VERSION}
-    else
-      echo "Unsupported troposphere version, must be >2.0.0"
-      echo "Version entered: ${INPUT_SCEPTRE_TROPOSPHERE_VERSION}"
-      exit 1
-    fi
   else
     echo "Input sceptre_troposphere_version cannot be empty!"
     exit 1
