@@ -38,7 +38,7 @@ function parseInputs {
       exit 1
   fi
 
-  sceptreTroposphereVer='2.6.0'
+  sceptreTroposphereVer='4.3.2'
   if [[ "${INPUT_SCEPTRE_TROPOSPHERE_VERSION}" != "" ]]; then
       sceptreTroposphereVer=${INPUT_SCEPTRE_TROPOSPHERE_VERSION}
   else
